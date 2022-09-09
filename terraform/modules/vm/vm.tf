@@ -19,7 +19,7 @@ resource "azurerm_linux_virtual_machine" "" {
   admin_username      = ""
   network_interface_ids = []
   admin_ssh_key {
-    username   = ""
+    username   = "mahfuzur"
     public_key = "file("~/.ssh/id_rsa.pub")"
   }
   os_disk {
