@@ -28,7 +28,7 @@ stages:
   jobs:
   - deployment: FakeRestAPI
     pool:
-      vmImage: 'Ubuntu-18.04-LTS'
+      vmImage: 'ubuntu-latest'
     environment: 'TEST'
     strategy:
       runOnce:
