@@ -4,7 +4,7 @@ resource "azurerm_network_security_group" "nsg" {
     location            = "${var.location}"
  
   security_rule {
-        name                       = "SSH"
+        name                       = "AllowSSHIn"
         priority                   = 1001
         direction                  = "Inbound"
         access                     = "Allow"
