@@ -12,6 +12,19 @@ module "resource_group" {
   resource_group       = "${var.resource_group}"
   location             = "${var.location}"
 }
+#Network
+module "network" {
+  source               = "./modules/network"
+  resource_group       = "${module.resource_group.resource_group_name}"
+  virtual_network_name = "${var.virtual_network_name}"
+  location             = "${var.location}"
+  application_type     = "${var.application_type}"
+  address_space        = "${var.address_space}"
+  resource_type        = "Network"
+  address_prefix_test  = "${var.address_prefix_test}"
+  
+}
+
 # Reference the AppService Module here.
 module "appservice" {
   source           = "./modules/appservice"
