@@ -1,0 +1,45 @@
+{
+    "variables": {
+      "client_id": "",
+      "client_secret": "",
+      "subscription_id": "102d70e0-e700-449a-9731-26a3a2136316"
+    },
+      "builders": [{
+          "type": "azure-arm",
+          "client_id": "{{user `client_id`}}",
+          "client_secret": "{{user `client_secret`}}",
+          "subscription_id": "{{user `subscription_id`}}",
+      
+          "os_type": "Linux",
+          "image_publisher": "Canonical",
+          "image_offer": "UbuntuServer",
+          "image_sku": "Ubuntu-16.04",
+      
+      
+          "build_resource_group_name": "Azuredevops",
+          "managed_image_resource_group_name": "Azuredevops",
+          "managed_image_name": "ubunti1804LTS",
+      
+          "vm_size": "Standard_D2s_v3",  
+         
+          "azure_tags": {
+            "environment": "project03",
+            "projetc": "project03",
+            "task":"p03packerimage deployment"
+          }
+      }],
+      "provisioners": [{
+          "inline": [
+              "echo 'Hello, World!' > index.html",
+              "nohup busybox httpd -f -p 80 &",
+              "apt-get update",
+              "apt-get upgrade -y",
+              "apt-get -y install nginx",
+        
+              "/usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync"
+            
+          ],
+          "inline_shebang": "/bin/sh -x",
+          "type": "shell"
+      }]
+  }
