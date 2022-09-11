@@ -11,6 +11,7 @@ resource "azurerm_network_interface" "test" {
   }
 }
 
+
 resource "azurerm_linux_virtual_machine" "test" {
   name                = "${var.application_type}-${var.resource_type}"
   location            = "${var.location}"
@@ -19,10 +20,10 @@ resource "azurerm_linux_virtual_machine" "test" {
   admin_username      = "azureuser"
   network_interface_ids = [azurerm_network_interface.test.id,]
   admin_ssh_key {
-    username   = "mahfuzur"
-    public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDEJOA6iRkV/r6xLGTZuEMIvALoZXsNJ7ycbic6S9VUbrdbO25TTMEMWcHV4hB66GpgZpkmB4XgLLv50/RrbHN6l/ThJrF5ebj0rWyVpde79ZSz/1JBXOr4fYp7zCEbtPGKW8Jw8FQB82uFq3aHbXATlXh0r0tQrnFBUHUcBKlDFO0ugDrIUZ80du0BafhaXl2lnd3qKba9rNkwqsoxhAL6hiAUxx10KvFdSSdrnHwZy64KVBgvg264KqB3Yfr78PHJxwQwMXxr8/CwFPDB5OyVLDg2ZwHoVHE6570fKSzGD6Sm6RPOsU2WuXJGGv9XQ79NkrS87udJnMZ7/jICGW/U3H+0ap7fumlvvMXih65fTn/fKNciztcH8QOoUdNCs5KK4hoDuXUe+98KeA4dkXkxYw+AIZt/cI8cLtBIEZDLxktQ3XFhjDeFwRTzz+aVNUiIaRAwQOl2LjYFhexMeyK975M5dsQU640CFX7evwdX61jDWsgPd8DgJghGfR3iUx/5JNaJ4Qz6bpC0LP0PgbwLkB/jS1KNv84XcEOxFTcNGW4dsWtbEM+ArR/EcW3PX685GyfkhkHYde11FuzmT4CTGcFVnV11aBIUXAJM7tCpEuyjVXRc8t8urTO4wxlTFoEo65OWG1JDveBJZ7ijctF3htGWBjfsRSMVqzXafKe0aw== mahfuzur@cc-fac25d87-66fbc57944-ttk5q"
+    username   = "adminuser"
+    #public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDEJOA6iRkV/r6xLGTZuEMIvALoZXsNJ7ycbic6S9VUbrdbO25TTMEMWcHV4hB66GpgZpkmB4XgLLv50/RrbHN6l/ThJrF5ebj0rWyVpde79ZSz/1JBXOr4fYp7zCEbtPGKW8Jw8FQB82uFq3aHbXATlXh0r0tQrnFBUHUcBKlDFO0ugDrIUZ80du0BafhaXl2lnd3qKba9rNkwqsoxhAL6hiAUxx10KvFdSSdrnHwZy64KVBgvg264KqB3Yfr78PHJxwQwMXxr8/CwFPDB5OyVLDg2ZwHoVHE6570fKSzGD6Sm6RPOsU2WuXJGGv9XQ79NkrS87udJnMZ7/jICGW/U3H+0ap7fumlvvMXih65fTn/fKNciztcH8QOoUdNCs5KK4hoDuXUe+98KeA4dkXkxYw+AIZt/cI8cLtBIEZDLxktQ3XFhjDeFwRTzz+aVNUiIaRAwQOl2LjYFhexMeyK975M5dsQU640CFX7evwdX61jDWsgPd8DgJghGfR3iUx/5JNaJ4Qz6bpC0LP0PgbwLkB/jS1KNv84XcEOxFTcNGW4dsWtbEM+ArR/EcW3PX685GyfkhkHYde11FuzmT4CTGcFVnV11aBIUXAJM7tCpEuyjVXRc8t8urTO4wxlTFoEo65OWG1JDveBJZ7ijctF3htGWBjfsRSMVqzXafKe0aw== mahfuzur@cc-fac25d87-66fbc57944-ttk5q"
     #file("./id_rsa.pub") 
-    #"file("~/.ssh/id_rsa.pub")"
+    public_key =file("~/.ssh/id_rsa.pub")
   }
   os_disk {
     caching           = "ReadWrite"
