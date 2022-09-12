@@ -62,14 +62,14 @@ stages:
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
        
     #Terraform Apply
-    - task: TerraformTaskV2@2
-      displayName: Terraform Apply
-      inputs:
-        provider: 'azurerm'
-        command: 'apply'
-        commandOptions: '-auto-approve'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
-        environmentServiceNameAzureRM: 'service-connection-azurerm'
+   # - task: TerraformTaskV2@2
+    #  displayName: Terraform Apply
+     # inputs:
+      #  provider: 'azurerm'
+       # command: 'apply'
+        #commandOptions: '-auto-approve'
+        #workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
+        #environmentServiceNameAzureRM: 'service-connection-azurerm'
 
     
 #     - task: ArchiveFiles@2
