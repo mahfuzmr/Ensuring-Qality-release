@@ -56,6 +56,8 @@ module "vm" {
   source               = "../../modules/vm"
   location             = "${var.location}"
   resource_group       = module.resource_group.resource_group_name  
+  application_type = "${var.application_type}"
+  resource_type    = "VM"
   subnet_id        = "${module.network.subnet_id_test}"
   public_ip        = "${module.publicip.public_ip_address_id}"
 }
