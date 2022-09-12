@@ -66,16 +66,8 @@ stages:
         environmentServiceNameAzureRM: service-connection-azurerm
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
        
-    - task: AzureCLI@1
-      inputs:
-        command: 'import'
-        environmentServiceName: 'service-connection-azurerm'
-        providerAzureRmSubscriptionId: '74214412-f442-4c67-a0ca-85088f71762c'
-        #runAzLogin: true
-        allowTelemetryCollection: true
-        resourceAddress: 'module.modules.resource_group.azurerm_resource_group.test'
-        resourceId: 'tfstate'
 
+        
     #Terraform Apply
     - task: TerraformTaskV2@2
       displayName: Terraform Apply
