@@ -80,6 +80,7 @@ stages:
       displayName: Import existing resource group
       inputs:
         command: 'import'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
         environmentServiceName: 'service-connection-azurerm'
         providerAzureRmSubscriptionId: '74214412-f442-4c67-a0ca-85088f71762c'
         #runAzLogin: true
