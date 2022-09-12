@@ -1,8 +1,8 @@
 #!/bin/bash
 
-RESOURCE_GROUP_NAME=tstate
-STORAGE_ACCOUNT_NAME=tstate$RANDOM
-CONTAINER_NAME=tstate
+RESOURCE_GROUP_NAME=tfstate
+STORAGE_ACCOUNT_NAME=tfstate$RANDOM
+CONTAINER_NAME=tfstate
 
 # Create resource group
 az group create --name $RESOURCE_GROUP_NAME --location WestEurope
