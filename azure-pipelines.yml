@@ -1,14 +1,22 @@
-name: Azure Pipelines
 variables:
-  python.version: '3.7.6'
+ - group: azcreds
+
+name: Azure Pipelines
 stages:
-- stage: Build
+- stage: Provision
   jobs:
-  - job: Build
+  - job: TerraformTasks
+    displayName: Terraform Tasks
     pool:
       vmImage: 'Ubuntu-18.04'
-   # steps:
-    # Needed for Terraform VM deployment
+    steps:
+   # Needed for Terraform VM deployment
+    - task: DownloadSecureFile@1
+      displayName: Download azcreds.conf file
+      name: azcreds
+      inputs:
+          secureFile: 'azcreds.conf'
+
 
     # - task: InstallSSHKey@0
     #   inputs:
