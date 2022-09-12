@@ -81,8 +81,7 @@ stages:
       inputs:
         command: 'import'
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
-        environmentServiceName: 'service-connection-azurerm'
-        providerAzureRmSubscriptionId: '74214412-f442-4c67-a0ca-85088f71762c'
+        environmentServiceName: 'service-connection-azurerm'        
         #runAzLogin: true
         allowTelemetryCollection: true
         resourceAddress: 'module.resource_group.azurerm_resource_group.test'
