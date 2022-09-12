@@ -53,13 +53,13 @@ stages:
             export ARM_CLIENT_SECRET=$(client_secret)
             export ARM_SUBSCRIPTION_ID=$(subscription_id)
             export ARM_TENANT_ID=$(tenant_id)
-    - task: TerraformTaskV3@3
-      displayName: 'Terraform Plan'
-      inputs:
-        provider: 'azurerm'
-        command: 'plan'
-        environmentServiceNameAzureRM: service-connection-azurerm
-        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
+   # - task: TerraformTaskV3@3
+    #  displayName: 'Terraform Plan'
+     # inputs:
+      #  provider: 'azurerm'
+       # command: 'plan'
+        #environmentServiceNameAzureRM: service-connection-azurerm
+        #workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
        
     #Terraform Apply
     - task: TerraformTaskV2@2
