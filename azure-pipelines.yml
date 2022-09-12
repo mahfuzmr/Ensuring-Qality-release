@@ -62,16 +62,16 @@ stages:
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
        
     #Terraform Apply
-    - #task: TerraformTaskV2@2
-      #displayName: Terraform Apply
-      #inputs:
-      #  provider: 'azurerm'
-      #  command: 'apply'
-      #  commandOptions: '-auto-approve'
-      #  workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
-      #  environmentServiceNameAzureRM: 'service-connection-azurerm'
+    #- task: TerraformTaskV2@2
+    #  displayName: Terraform Apply
+    #  inputs:
+    #    provider: 'azurerm'
+    #    command: 'apply'
+    #    commandOptions: '-auto-approve'
+    #    workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
+    #    environmentServiceNameAzureRM: 'service-connection-azurerm'
 
-  - stage: Build
+- stage: Build
   jobs:
   - job: build_artifacts
     displayName: Build Artifacts
@@ -87,7 +87,7 @@ stages:
         archiveFile: '$(Build.ArtifactStagingDirectory)/automatedtesting/jmeter/fakerestapi-$(Build.BuildId).zip'
       
     - task: PublishPipelineArtifact@1
-    displayName: Publish Fakerestapi as Artifact
+    displayName: Publish Fakerestapi as rtifact
     inputs:
       targetPath: '$(Build.ArtifactStagingDirectory)/fakerestapi-$(Build.BuildId).zip'
       artifactName: 'drop-fakerestapi'
