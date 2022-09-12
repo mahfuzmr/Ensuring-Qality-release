@@ -87,10 +87,10 @@ stages:
         archiveFile: '$(Build.ArtifactStagingDirectory)/automatedtesting/jmeter/fakerestapi-$(Build.BuildId).zip'
       
     - task: PublishPipelineArtifact@1
-    displayName: Publish Fakerestapi as rtifact
-    inputs:
-      targetPath: '$(Build.ArtifactStagingDirectory)/fakerestapi-$(Build.BuildId).zip'
-      artifactName: 'drop-fakerestapi'
+      displayName: Publish Fakerestapi as rtifact
+      inputs:
+        targetPath: '$(Build.ArtifactStagingDirectory)/fakerestapi-$(Build.BuildId).zip'
+        artifactName: 'drop-fakerestapi'
 
 #     - task: ArchiveFiles@2
 #       displayName: 'Archive FakeRestAPI'
