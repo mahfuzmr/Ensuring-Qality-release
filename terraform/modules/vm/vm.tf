@@ -10,10 +10,7 @@ resource "azurerm_network_interface" "test" {
     public_ip_address_id          = "${var.public_ip}"
   }
 }
-resource "tls_private_key" "example_ssh" {
-    algorithm = "RSA"
-    rsa_bits = 4096
-}
+
 resource "azurerm_linux_virtual_machine" "test" {
   name                = "${var.application_type}-${var.resource_type}"
   location            = "${var.location}"
