@@ -58,6 +58,18 @@ stages:
             export ARM_CLIENT_SECRET=$(client_secret)
             export ARM_SUBSCRIPTION_ID=$(subscription_id)
             export ARM_TENANT_ID=$(tenant_id)
+
+    - task: TerraformCLI@0
+      displayName: Import existing resource group
+      inputs:
+        command: 'import'
+        environmentServiceName: 'service-connection-azurerm'
+        providerAzureRmSubscriptionId: '74214412-f442-4c67-a0ca-85088f71762c'
+        #runAzLogin: true
+        allowTelemetryCollection: true
+        resourceAddress: 'module.modules.resource_group.azurerm_resource_group.test'
+        resourceId: 'tfstate'
+
     - task: TerraformTaskV3@3
       displayName: 'Terraform Plan'
       inputs:
