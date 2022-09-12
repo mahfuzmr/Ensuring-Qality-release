@@ -62,16 +62,30 @@ stages:
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
        
     #Terraform Apply
-   # - task: TerraformTaskV2@2
-    #  displayName: Terraform Apply
-     # inputs:
-      #  provider: 'azurerm'
-       # command: 'apply'
-        #commandOptions: '-auto-approve'
-        #workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
-        #environmentServiceNameAzureRM: 'service-connection-azurerm'
+    - task: TerraformTaskV2@2
+      displayName: Terraform Apply
+      inputs:
+        provider: 'azurerm'
+        command: 'apply'
+        commandOptions: '-auto-approve'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
+        environmentServiceNameAzureRM: 'service-connection-azurerm'
 
-    
+- stage: Build
+  jobs:
+  - job: build_artifacts
+    displayName: Build Artifacts
+    pool:
+      vmImage: 'ubuntu-18.04'
+    steps:
+    - task: ArchiveFiles@2
+      displayName: Archive FakeRestAPI
+      inputs:
+        rootFolderOrFile: '$(System.DefaultWorkingDirectory)/automatedtesting/jmeter/fakerestapi'
+        includeRootFolder: false
+        archiveType: 'zip'
+        archiveFile: '$(Build.ArtifactStagingDirectory)/automatedtesting/jmeter/fakerestapi-$(Build.BuildId).zip'
+        
 #     - task: ArchiveFiles@2
 #       displayName: 'Archive FakeRestAPI'
 #       inputs:
