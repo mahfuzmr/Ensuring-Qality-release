@@ -28,7 +28,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"{{name}}\",\n    \"salary\": \"{{salary}}\",\n    \"age\": \"{{age}}\"\n}",
+					"raw": "{\r\n    \"name\": \"Dummy Name\",\r\n    \"salary\": \"1000\",\r\n    \"age\": \"19\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -145,7 +145,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"UserName\": \"{{name}}\",\r\n    \"Password\": \"{{password}}\"\r\n}",
+					"raw": "{\r\n    \"name\": \"Changed name\",\r\n    \"salary\": \"2000\",\r\n    \"age\": \"32\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
