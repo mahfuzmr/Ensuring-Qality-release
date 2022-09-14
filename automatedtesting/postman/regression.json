@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "968b3a18-cc72-48a2-9b6b-e8619b4aaca8",
+		"_postman_id": "2fa823d1-a129-4661-8b64-6e70a4985381",
 		"name": "regression test",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12792064"
 	},
 	"item": [
 		{
@@ -11,13 +12,10 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "38b1717c-45ae-477f-8dae-8e889ba381d5",
 						"exec": [
 							"pm.test(\"Successful response\", function () {",
 							"    pm.expect(pm.response.text()).to.include(\"success\");",
-							"});",
-							"var json = pm.response.json();",
-							"pm.environment.set(\"id\", json.data.id);"
+							"});"
 						],
 						"type": "text/javascript"
 					}
@@ -58,12 +56,10 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "af3cb111-e3ac-4174-b8ca-7f4127a0285d",
 						"exec": [
 							"pm.test(\"Successful response\", function () {",
 							"    pm.expect(pm.response.text()).to.include(\"success\");",
-							"});",
-							""
+							"});"
 						],
 						"type": "text/javascript"
 					}
@@ -94,12 +90,11 @@
 			"event": [
 				{
 					"listen": "test",
-					"script": {						
+					"script": {
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.expect(pm.response.text()).to.include(\"success\");",
-							"});",
-							""
+							"});"
 						],
 						"type": "text/javascript"
 					}
@@ -109,7 +104,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://dummy.restapiexample.com/api/v1/employee/1",
+					"raw": "http://dummy.restapiexample.com/api/v1/employees",
 					"protocol": "http",
 					"host": [
 						"dummy",
@@ -153,7 +148,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://dummy.restapiexample.com/api/v1/update/1",
+					"raw": "https://dummy.restapiexample.com/api/Users/1",
 					"protocol": "https",
 					"host": [
 						"dummy",
@@ -167,7 +162,6 @@
 					]
 				}
 			},
-			
 			"response": []
 		},
 		{
@@ -189,7 +183,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://dummy.restapiexample.com/api/v1/delete/1",
+					"raw": "https://dummy.restapiexample.com/api/Users/1",
 					"protocol": "https",
 					"host": [
 						"dummy",
@@ -204,8 +198,6 @@
 				}
 			},
 			"response": []
-		}	
-	
-	],
-	"protocolProfileBehavior": {}
+		}
+	]
 }
