@@ -136,22 +136,34 @@ stages:
               packageForLinux: '$(Pipeline.Workspace)/drop-fakerestapi/fakerestapi-$(Build.BuildId).zip'
               DeploymentType: zipDeploy   
 
-  - deployment: VMDeploy
-    displayName: Deploy Virtual Machine
-    environment:
-      name: 'TEST'
-      resourceType: VirtualMachine
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - bash: |
-              sudo apt-get update -y
-              sudo apt-get install python3-pip -y
-              sudo apt-get install unzip -y
-              sudo apt-get install -y chromium-browser
-              sudo apt-get install -y chromium-chromedriver
-              python3 -m pip install --upgrade pip
-              pip3 install selenium  
-            displayName: Configure VM
+- stage: Test
+  jobs:
+  - job: IntegrationTests
+    displayName: Integration Tests
+    pool:
+      name: Hosted Ubuntu 1604
+    steps:
+    - task: CmdLine@2
+      displayName: Install Newman
+      inputs:
+        script: 'sudo npm install -g newman'
+        workingDirectory: $(System.DefaultWorkingDirectory)
+    - task: CmdLine@2
+      displayName: Apply Regression Tests
+      continueOnError: true
+      inputs:
+        script: 'newman run ./automatedtesting/postman/regression.json --reporters cli,junit --reporter-junit-export ./automatedtesting/postman/TEST-regression.xml'
+        workingDirectory:  $(System.DefaultWorkingdirectory)
+    - task: CmdLine@2
+      displayName: Apply Validation Tests
+      continueOnError: true
+      inputs:
+        script: 'newman run ./automatedtesting/postman/validation.json --reporters cli,junit --reporter-junit-export ./automatedtesting/postman/TEST-validation.xml'
+        workingDirectory: $(System.DefaultWorkingdirectory)
+    - task: PublishTestResults@2
+      displayName: Publish Test Results
+      inputs:
+        testResultsFiles: '**/TEST-*.xml' 
+        searchFolder: '$(System.DefaultWorkingDirectory)/automatedtesting/postman/' 
+        publishRunAttachments: true 
 
