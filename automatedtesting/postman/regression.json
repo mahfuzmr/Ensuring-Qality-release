@@ -34,8 +34,8 @@
 					}
 				},
 				"url": {
-					"raw": "http://dummy.restapiexample.com/api/v1/create",
-					"protocol": "http",
+					"raw": "https://dummy.restapiexample.com/api/v1/create",
+					"protocol": "https",
 					"host": [
 						"dummy",
 						"restapiexample",
@@ -69,8 +69,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://dummy.restapiexample.com/api/v1/employees",
-					"protocol": "http",
+					"raw": "https://dummy.restapiexample.com/api/v1/employees",
+					"protocol": "https",
 					"host": [
 						"dummy",
 						"restapiexample",
@@ -104,8 +104,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://dummy.restapiexample.com/api/v1/employees",
-					"protocol": "http",
+					"raw": "https://dummy.restapiexample.com/api/v1/employee/1",
+					"protocol": "https",
 					"host": [
 						"dummy",
 						"restapiexample",
@@ -114,7 +114,8 @@
 					"path": [
 						"api",
 						"v1",
-						"employees"
+						"employee",
+						"1"
 					]
 				}
 			},
@@ -148,7 +149,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://dummy.restapiexample.com/api/Users/1",
+					"raw": "https://dummy.restapiexample.com/api/v1/update/1",
 					"protocol": "https",
 					"host": [
 						"dummy",
@@ -157,7 +158,8 @@
 					],
 					"path": [
 						"api",
-						"Users",
+						"v1",
+						"update",
 						"1"
 					]
 				}
@@ -183,7 +185,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://dummy.restapiexample.com/api/Users/1",
+					"raw": "https://dummy.restapiexample.com/api/v1/delete/5",
 					"protocol": "https",
 					"host": [
 						"dummy",
@@ -192,8 +194,9 @@
 					],
 					"path": [
 						"api",
-						"Users",
-						"1"
+						"v1",
+						"delete",
+						"5"
 					]
 				}
 			},

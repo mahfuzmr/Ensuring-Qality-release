@@ -45,7 +45,8 @@
 					}
 				},
 				"url": {
-					"raw": "dummy.restapiexample.com/api/1/create",
+					"raw": "https://dummy.restapiexample.com/api/v1/create",
+					"protocol": "https",
 					"host": [
 						"dummy",
 						"restapiexample",
@@ -53,7 +54,7 @@
 					],
 					"path": [
 						"api",
-						"1",
+						"v1",
 						"create"
 					]
 				}
@@ -96,7 +97,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "dummy.restapiexample.com/api/1/employees",
+					"raw": "https://dummy.restapiexample.com/api/v1/employees",
+					"protocol": "https",
 					"host": [
 						"dummy",
 						"restapiexample",
@@ -104,7 +106,7 @@
 					],
 					"path": [
 						"api",
-						"1",
+						"v1",
 						"employees"
 					]
 				}
@@ -164,7 +166,8 @@
 					}
 				},
 				"url": {
-					"raw": "dummy.restapiexample.com/api/1/update/1",
+					"raw": "https://dummy.restapiexample.com/api/v1/update/1",
+					"protocol": "https",
 					"host": [
 						"dummy",
 						"restapiexample",
@@ -172,7 +175,7 @@
 					],
 					"path": [
 						"api",
-						"1",
+						"v1",
 						"update",
 						"1"
 					]
@@ -211,7 +214,7 @@
 							"\r",
 							"pm.test(\"Validate Message\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.message).to.eql(\"Data deleted successfully\");\r",
+							"    pm.expect(jsonData.message).to.eql(\"Successfully! Record has been deleted\");\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -222,7 +225,8 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "dummy.restapiexample.com/api/1/delete/1",
+					"raw": "https://dummy.restapiexample.com/api/v1/delete/1",
+					"protocol": "https",
 					"host": [
 						"dummy",
 						"restapiexample",
@@ -230,7 +234,7 @@
 					],
 					"path": [
 						"api",
-						"1",
+						"v1",
 						"delete",
 						"1"
 					]
