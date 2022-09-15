@@ -167,3 +167,36 @@ stages:
         searchFolder: '$(System.DefaultWorkingDirectory)/automatedtesting/postman/' 
         publishRunAttachments: true 
 
+  - job: UITests
+    displayName: Selenuim UI Tests
+    steps:
+    - task: Bash@3
+      displayName: 'Setup VM environment'
+      inputs:
+        targetType: 'inline'
+        script: |
+          #! /bin/bash
+          sudo apt-get upgrade -y
+          sudo apt-get install python3-pip -y
+          sudo apt-get install unzip -y
+    - task: Bash@3
+      displayName: 'Configure Selenium, Chromium & chromedriver'
+      inputs:
+        targetType: 'inline'
+        script: |
+          #install chromium & selenium
+          sudo apt-get install -y chromium-browser
+          pip3 install selenium
+          
+          #install chromedriver & export path
+          if [ ! -f $(Pipeline.Workspace)/chromedriver ]; then
+            wget https://chromedriver.storage.googleapis.com/100.0.4896.20/chromedriver_linux64.zip
+            unzip chromedriver_linux64.zip
+          fi
+          export PATH=$PATH:$(Pipeline.Workspace)/chromedriver         
+    - task: Bash@3
+      displayName: 'Run UI test'
+      inputs:
+        targetType: 'inline'
+        script: |          
+          python3 ./automatedtesting/selenium/selenium_ui.py
