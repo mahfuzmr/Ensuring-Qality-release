@@ -193,7 +193,11 @@ stages:
             wget https://chromedriver.storage.googleapis.com/100.0.4896.20/chromedriver_linux64.zip
             unzip chromedriver_linux64.zip
           fi
-          export PATH=$PATH:$(Pipeline.Workspace)/chromedriver         
+          export PATH=$PATH:$(Pipeline.Workspace)/chromedriver 
+          if [ ! -d /var/log/selenium ]; then
+                 sudo mkdir /var/log/selenium
+                 sudo chmod 777 /var/log/selenium
+          fi        
     - task: Bash@3
       displayName: 'Run UI test'
       inputs:
