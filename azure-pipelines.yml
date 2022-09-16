@@ -218,16 +218,20 @@ stages:
             unzip chromedriver_linux64.zip
           fi
           export PATH=$PATH:$(Pipeline.Workspace)/chromedriver 
-          if [ ! -d /var/log/selenium ]; then
-                 sudo mkdir /var/log/selenium
-                 sudo chmod 777 /var/log/selenium
-          fi        
+               
     - task: Bash@3
       displayName: 'Run UI test'
       inputs:
         targetType: 'inline'
-        script: |          
-          python3 ./automatedtesting/selenium/selenium_ui.py
+        script: |
+          if [ ! -d /var/log/selenium ]; then
+                 sudo mkdir /var/log/selenium
+                 sudo chmod 777 /var/log/selenium
+          fi            
+          python3 ./automatedtesting/selenium/selenium_ui.py | sudo tee -a /var/log/selenium/selenium-test.log
+          cd $(System.DefaultWorkingDirectory)
+          mkdir -p log/selenium              
+          sudo cp /var/log/selenium/selenium-test.log log/selenium/selenium-test.log            
           cat /var/log/selenium/selenium_ui.log
 
   - job: PerformanceTest
