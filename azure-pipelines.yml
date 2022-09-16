@@ -217,12 +217,12 @@ stages:
         tar xzvf jmeter.tgz
         mkdir -p log/jmeter
         if [ ! -d /var/log/jmeter/stress-test-html-report ]; then
-                sudo mkdir /var/log/jmeter/stress-test-html-report
-                sudo chmod 777 /var/log//stress-test-html-report
+              sudo mkdir /var/log/jmeter/stress-test-html-report
+              sudo chmod 777 /var/log//stress-test-html-report
         fi  
-                if [ ! -d /var/log/jmeter/endurance-test-html-report ]; then
-                sudo mkdir /var/log/jmeter/endurance-test-html-report
-                sudo chmod 777 /var/log/jmeter/endurance-test-html-report
+        if [ ! -d /var/log/jmeter/endurance-test-html-report ]; then
+              sudo mkdir /var/log/jmeter/endurance-test-html-report
+              sudo chmod 777 /var/log/jmeter/endurance-test-html-report
         fi  
       displayName: Install JMeter
     - bash: |
