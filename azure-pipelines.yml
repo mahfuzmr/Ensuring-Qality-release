@@ -136,6 +136,8 @@ stages:
               packageForLinux: '$(Pipeline.Workspace)/drop-fakerestapi/fakerestapi-$(Build.BuildId).zip'
               DeploymentType: zipDeploy   
 
+
+
 - stage: Test
   jobs:
   - job: IntegrationTests
@@ -204,7 +206,12 @@ stages:
         targetType: 'inline'
         script: |          
           python3 ./automatedtesting/selenium/selenium_ui.py
-
+          - task: PublishPipelineArtifact@1
+            displayName: Publish Selenium logs
+            inputs:
+              targetPath: '$(System.DefaultWorkingDirectory)/log/selenium/selenium-test.log'
+              artifactName: 'drop-selenium-logs'
+              
   - job: PerformanceTest
     displayName: Test JMeter
     pool:
