@@ -136,7 +136,29 @@ stages:
               packageForLinux: '$(Pipeline.Workspace)/drop-fakerestapi/fakerestapi-$(Build.BuildId).zip'
               DeploymentType: zipDeploy   
 
-
+  - deployment: VMDeploy
+    displayName: Deploy Virtual Machine
+    environment:
+      name: 'TEST'
+      resourceType: VirtualMachine
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - bash: |
+              sudo apt-get update -y
+              sudo apt-get install python3-pip -y
+              sudo apt-get install unzip -y
+              sudo apt-get install -y chromium-browser
+              sudo apt-get install -y chromium-chromedriver
+              python3 -m pip install --upgrade pip
+              pip3 install selenium
+              # Install Log Analytics agent on Linux computers (only need to run once, comment when installed)
+              # wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w ${AZURE_LOG_ANALYTICS_ID} -s ${AZURE_LOG_ANALYTICS_PRIMARY_KEY} -d opinsights.azure.com
+            env: 
+              AZURE_LOG_ANALYTICS_ID: $(la_workspace_id)
+              AZURE_LOG_ANALYTICS_PRIMARY_KEY: $(la_primary_key)
+            displayName: Configure VM
 
 - stage: Test
   jobs:
