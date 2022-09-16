@@ -123,6 +123,7 @@ We can save and after succesfull execution the output of the test will be as fol
 
 Sometime because of the resource limit reached. [![WUPff](https://github.com/Iggy-Codes/logo-images/blob/master/logos/pug.png)] the integration test showing 429 Error that's why the test stage has warning sign. We can easity skip the error 429 if we want.
 
+
 If the test phase succeed, the complete pipeline will show following output
 
 ![Provision-Build-Deploy-Test](screenshot/successful-run.png)
