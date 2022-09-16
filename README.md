@@ -91,7 +91,7 @@ Before using Infarstructure as code provisioning we need to create
 
             Replace each value into ```terraform.tfvars```
 ## Resource Creation
-Before running the pipeline make sure to install the Terraform extension ![Azure Pipelines Terraform Tasks](https://marketplace.visualstudio.com/items?itemName=charleszipp.azure-pipelines-tasks-terraform&targetId=b71721d4-0e92-4bfc-a8fa-9444513a18ad&utm_source=vstsproduct&utm_medium=ExtHubManageList)
+Before running the pipeline make sure to install the Terraform extension [Azure Pipelines Terraform Tasks](https://marketplace.visualstudio.com/items?itemName=charleszipp.azure-pipelines-tasks-terraform&targetId=b71721d4-0e92-4bfc-a8fa-9444513a18ad&utm_source=vstsproduct&utm_medium=ExtHubManageList)
 
 Now run the pipeline to execute above configuration and create resources. A successful pipeline provision, build deploy will look like:
 

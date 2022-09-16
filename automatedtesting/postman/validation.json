@@ -13,6 +13,9 @@
 					"listen": "test",
 					"script": {
 						"exec": [
+							"\r",
+							"var code=pm.response.code;\r",
+							"if(\"429\" != code){\r",
 							"pm.test(\"Successful response\", function () {\r",
 							"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 							"});\r",
@@ -21,12 +24,15 @@
 							"  pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
+							"\r",
 							"pm.test(\"Validate Data\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.data.name).to.eql(pm.variables.get(\"name\"));\r",
+							"    var jsonData = pm.response.json();    \r",
 							"    pm.expect(jsonData.data.age).to.eql(pm.variables.get(\"age\"));\r",
 							"    pm.expect(jsonData.data.salary).to.eql(pm.variables.get(\"salary\"));\r",
-							"});"
+							"});\r",
+							"}\r",
+							"\r",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -37,7 +43,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Dummy Name\",\r\n    \"salary\": \"1000\",\r\n    \"age\": \"19\"\r\n}",
+					"raw": "{\r\n\"name\": \"Dummy Name\",\r\n\"salary\": \"1000\",\r\n\"age\": \"19\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -68,9 +74,8 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Successful response\", function () {\r",
-							"    pm.expect(pm.response.text()).to.include(\"success\");\r",
-							"});\r",
+							"var code=pm.response.code;\r",
+							"if(\"429\" != code){\r",
 							"\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"  pm.response.to.have.status(200);\r",
@@ -87,7 +92,8 @@
 							"pm.test('Validate schema', function () {\r",
 							"    var jsonData = pm.response.json();\r",
 							"    pm.expect(tv4.validate(jsonData, schema)).to.be.true;\r",
-							"});"
+							"})\r",
+							"};"
 						],
 						"type": "text/javascript"
 					}
@@ -120,12 +126,13 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Successful response\", function () {\r",
-							"    pm.expect(pm.response.text()).to.include(\"success\");\r",
-							"});\r",
-							"\r",
+							"var code=pm.response.code;\r",
+							"if(\"429\" != code){\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Status code is 429\", function () {\r",
+							"  pm.response.to.have.status(429);\r",
 							"});\r",
 							"\r",
 							"var schema = {\r",
@@ -146,7 +153,8 @@
 							"pm.test('Validate schema', function () {\r",
 							"    var jsonData = pm.response.json();\r",
 							"    pm.expect(tv4.validate(jsonData, schema)).to.be.true;\r",
-							"});\r",
+							"})\r",
+							"};\r",
 							""
 						],
 						"type": "text/javascript"
@@ -190,6 +198,8 @@
 					"listen": "test",
 					"script": {
 						"exec": [
+							"var code=pm.response.code;\r",
+							"if(\"429\" != code){\r",
 							"pm.test(\"Successful response\", function () {\r",
 							"    pm.expect(pm.response.text()).to.include(\"success\");\r",
 							"});\r",
@@ -197,6 +207,8 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"  pm.response.to.have.status(200);\r",
 							"});\r",
+							"\r",
+							"\r",
 							"\r",
 							"var schema = {\r",
 							"    \"type\": \"object\",\r",
@@ -215,7 +227,8 @@
 							"pm.test(\"Validate Message\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
 							"    pm.expect(jsonData.message).to.eql(\"Successfully! Record has been deleted\");\r",
-							"});"
+							"})\r",
+							"};"
 						],
 						"type": "text/javascript"
 					}

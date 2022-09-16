@@ -13,9 +13,13 @@
 					"listen": "test",
 					"script": {
 						"exec": [
+							"",
+							"var code=pm.response.code;",
+							"if(\"429\" != code){",
 							"pm.test(\"Successful response\", function () {",
 							"    pm.expect(pm.response.text()).to.include(\"success\");",
-							"});"
+							"})",
+							"};"
 						],
 						"type": "text/javascript"
 					}
@@ -57,9 +61,12 @@
 					"listen": "test",
 					"script": {
 						"exec": [
+							"var code=pm.response.code;",
+							"if(\"429\" != code){",
 							"pm.test(\"Successful response\", function () {",
 							"    pm.expect(pm.response.text()).to.include(\"success\");",
-							"});"
+							"})",
+							"};"
 						],
 						"type": "text/javascript"
 					}
@@ -92,9 +99,12 @@
 					"listen": "test",
 					"script": {
 						"exec": [
+							"var code=pm.response.code;",
+							"if(\"429\" != code){",
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.expect(pm.response.text()).to.include(\"success\");",
-							"});"
+							"})",
+							"};"
 						],
 						"type": "text/javascript"
 					}
@@ -128,9 +138,12 @@
 					"listen": "test",
 					"script": {
 						"exec": [
+							"var code=pm.response.code;\r",
+							"if(\"429\" != code){\r",
 							"pm.test(\"Successful response\", function () {\r",
 							"    pm.expect(pm.response.text()).to.include(\"success\");\r",
-							"});"
+							"})\r",
+							"};"
 						],
 						"type": "text/javascript"
 					}
@@ -173,9 +186,12 @@
 					"listen": "test",
 					"script": {
 						"exec": [
+							"var code=pm.response.code;\r",
+							"if(\"429\" != code){\r",
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
-							"});"
+							"})\r",
+							"};"
 						],
 						"type": "text/javascript"
 					}
