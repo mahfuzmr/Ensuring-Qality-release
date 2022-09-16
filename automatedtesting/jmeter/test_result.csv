@@ -1,0 +1,13 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1663318983072,139,Get Users,200,OK,stress 2-1,text,true,,310,157,1,2,https://p3testapp-appservice.azurewebsites.net/api/Users?id=2,139,0,100
+1663318983072,147,Get Users,200,OK,endurance 1-1,text,true,,310,157,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=1,147,0,103
+1663318983275,110,Get Users,200,OK,stress 2-2,text,true,,310,157,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=3,110,0,81
+1663318983479,118,Get Users,200,OK,stress 2-3,text,true,,310,157,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=4,118,0,88
+1663318983683,119,Get Users,200,OK,stress 2-4,text,true,,310,157,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=5,119,0,89
+1663318983885,123,Get Users,200,OK,stress 2-5,text,true,,310,157,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=6,122,0,93
+1663318984070,132,Get Users,200,OK,stress 2-6,text,true,,310,157,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=7,132,0,100
+1663318984269,124,Get Users,200,OK,stress 2-7,text,true,,310,157,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=8,124,0,94
+1663318984469,118,Get Users,200,OK,stress 2-8,text,true,,310,157,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=9,118,0,88
+1663318984670,129,Get Users,200,OK,stress 2-9,text,true,,313,158,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=10,129,0,98
+1663318984870,132,Get Users,200,OK,stress 2-10,text,true,,310,157,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=1,132,0,99
+1663318988070,128,Get Users,200,OK,endurance 1-2,text,true,,310,157,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=2,127,0,96
