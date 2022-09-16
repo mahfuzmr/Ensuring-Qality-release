@@ -5,5 +5,5 @@ terraform/environments/test/.terraform
 terraform/environments/test/.terraform.lock.hcl
 terraform/environments/test/terraform.tfstate
 azcreds.config
-screenshot
+
 
