@@ -125,7 +125,7 @@ Some times because of the resource limit reached. [![WUPff](https://github.com/I
 
 If the test phase succeed, the complete pipeline will show following output
 
-![Provision-Build-Deploy-Test](screenshot/successful-run.png.png)
+![Provision-Build-Deploy-Test](screenshot/successful-run.png)
 
 Azure pipeline build results can be shown as:
 
