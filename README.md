@@ -129,10 +129,11 @@ Azure pipeline build results can be shown as:
 ![Build Result](screenshot/build_result.png)
 
 ## Testing phases
-    We run 3 different test stage consists of three different steps:
-    * [Jmeter Tests](#integration-test)
-    * [Postman Tests](#performance-tests)
-    * [Selenium UI Tests](#ui-tests)
+
+We run 3 different test stage consists of three different steps:
+* [Jmeter Tests](#integration-test)
+* [Postman Tests](#performance-tests)
+* [Selenium UI Tests](#ui-tests)
 
 Each of the tests are done on the given demo application (App url are given insite the script). those are :
 1. https://www.saucedemo.com/ (demo shoping site for UI Test)
