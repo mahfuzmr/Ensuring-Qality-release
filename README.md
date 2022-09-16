@@ -8,6 +8,7 @@ Demo project to ensure IaC quality releases by autometed CI/CD pipeline using Az
 * [Resource Creation](#resource-creation)
 * [Integrade Test suites through IaC](#integrade-test-suites-through-iac)
 * [Testing phases](#testing-phases)
+* [Monitoring](#monitoring)
 
 ## Introduction
 To ensure quality release our target is to ensure release that are filly automated from development till testing. Each of the testing phase contains full automated testing on different environment. And when the deployment meets all the requiremnts then the CI/CD will deploy the autometically ot the corresponding app service.
@@ -144,9 +145,11 @@ Each of the tests are done on the given demo application (App url are given insi
 
 After execution of the pipeline job for Jmeter Test suite following is the output:
 
- ![JMeter Test report pipeline](screenshot/JMeter-pipeline.png)
+ ![JMeter Test report pipeline steress](screenshot/output-stress.png)
 
-After successfully test execution of JMeter for endurance an stress test locally the following are the output reports:
+  ![JMeter Test report pipeline endurance](screenshot/output-endurance.png)
+
+After successfully test execution of JMeter for endurance and stress test locally the following are the output reports:
 
 * Endurance test report
 
@@ -180,6 +183,8 @@ Output window of the selenium with Which user looged in, How many product added 
 
 ![Pipeline output](screenshot/output-selenium.png)
 
-##
+## Monitoring
+Azure Log Analytics Workspace is the provide of the 
+
 ##
 ##
