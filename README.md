@@ -184,7 +184,20 @@ Output window of the selenium with Which user looged in, How many product added 
 ![Pipeline output](screenshot/output-selenium.png)
 
 ## Monitoring
-Azure Log Analytics Workspace is the provide of the 
+### Alert
+After configuring action group in azure portal for out apservice we got following email
+
+![Alert registration](screenshot/email-alert-initial.png)
+
+And then when out alert triggered we get following email as warning (since out alert template was warning)
+
+![Alert Triggered](screenshot/404%20alert.png)
+
+Azure Log Analytics Workspace is the provider of the log monitoring. After configuring log Analytics. 
+
+We can now query to see out log analytics 
+
+
 
 ##
 ##
