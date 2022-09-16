@@ -119,7 +119,7 @@ We can save and after succesfull execution the output of the test will be as fol
 
 ![Provision-Build-Deploy-Test](screenshot/test.png)
 
-Some times based on the load test could be fail because resource limit reached. [![WUPff](https://github.com/Iggy-Codes/logo-images/blob/master/logos/pug.png)]
+Some times because of the resource limit reached. [![WUPff](https://github.com/Iggy-Codes/logo-images/blob/master/logos/pug.png)] the integration test showing 429 Error that's why the test stage has warning sign.
 
 If the test phase succeed the complete pipeline will show following output
 

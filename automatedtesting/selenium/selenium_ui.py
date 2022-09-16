@@ -41,7 +41,7 @@ def adding_product_to_cart(driver):
             add_button.click()
             item_count +=1
             print(item_name+ "added to the cart")
-            logging.info(item_name+ "added to the cart")
+            logging.info(item_name+ " added to the cart")
         print("Total "+str(item_count)+ " items added to the cart")
         logging.info("Total "+str(item_count)+ " items added to the cart")
     return driver
