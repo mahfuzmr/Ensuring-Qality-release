@@ -136,6 +136,8 @@ stages:
               packageForLinux: '$(Pipeline.Workspace)/drop-fakerestapi/fakerestapi-$(Build.BuildId).zip'
               DeploymentType: zipDeploy   
 
+
+
 - stage: Test
   jobs:
   - job: IntegrationTests
@@ -204,6 +206,7 @@ stages:
         targetType: 'inline'
         script: |          
           python3 ./automatedtesting/selenium/selenium_ui.py
+          cat /var/log/selenium/selenium_ui.log
 
   - job: PerformanceTest
     displayName: Test JMeter
