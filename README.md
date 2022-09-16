@@ -2,11 +2,12 @@
 Demo project to ensure IaC quality releases by autometed CI/CD pipeline using Azure DevOps 
 
 ## Table of Contents
-* Introduction(#introduction)
-* Installation(#installation)
-* Initial configuration(#initial-configuration)
-* Resource Creation(#resource-creation)
-* Integrade Test suites(#integrade-test-suites)
+* [Introduction](#introduction)
+* [Installation](#installation)
+* [Initial configuration](#initial-configuration)
+* [Resource Creation](#resource-creation)
+* [Integrade Test suites through IaC](#integrade-test-suites-through-iac)
+* [Testing phases](#testing-phases)
 
 ## Introduction
 To ensure quality release our target is to ensure release that are filly automated from development till testing. Each of the testing phase contains full automated testing on different environment. And when the deployment meets all the requiremnts then the CI/CD will deploy the autometically ot the corresponding app service.
@@ -87,6 +88,7 @@ Before using Infarstructure as code provisioning we need to create
 
             Replace each value into ```terraform.tfvars```
 ## Resource Creation
+Before running the pipeline make sure to install the Terraform extension ![Azure Pipelines Terraform Tasks](https://marketplace.visualstudio.com/items?itemName=charleszipp.azure-pipelines-tasks-terraform&targetId=b71721d4-0e92-4bfc-a8fa-9444513a18ad&utm_source=vstsproduct&utm_medium=ExtHubManageList)
 
 Now run the pipeline to execute above configuration and create resources. A successful pipeline provision, build deploy will look like:
 
@@ -99,7 +101,7 @@ After deployment out created resource can be shown in the azure portal Home > Re
 Our system is now ready for integrading test phase.
 
 
-## Integrade Test suites
+## Integrade Test suites through IaC
 After implementing code for each of the test suites in the ``` azure-pipelines.yml ´´´ 
 
 We can save and after succesfull execution the output of the test will be as follows:
@@ -112,12 +114,56 @@ If the test phase succeed the complete pipeline will show following output
 
 ![Provision-Build-Deploy-Test](screenshot/pipeline-output.png)
 
+Azure pipeline build results can be shown as:
+
+![Build Result](screenshot/build_result.png)
+
+## Testing phases
+    We run 3 different test stage consists of three different steps:
+    * [Jmeter Tests](#integration-test)
+    * [Postman Tests](#performance-tests)
+    * [Selenium UI Tests](#ui-tests)
+
+Each of the tests are done on the given demo application (App url are given insite the script). those are :
+1. https://www.saucedemo.com/ (demo shoping site for UI Test)
+2. https://dummy.restapiexample.com/ (demo API for Postman testing)
+3.  https://p3testapp-appservice.azurewebsites.net (for our own app service performance test using JMeter)
+
+### Jmeter Tests
+
+* JMeter Pipeline report
+
+ ![JMeter Test report pipeline](screenshot/JMeter-pipeline.png)
+
+After successfully test execution of JMeter for endurance an stress test locally the following are the output reports:
+
+* Endurance test report
+
+ ![Endurance Test report](screenshot/endurance-test-report.png)
+
+* Stress test report
+
+ ![Stress Test Report](screenshot/stress-test-report.png)
+
+### Postman Tests
+
+![Postman test report pipeline](screenshot/Postmantest.png)
+
+* regression test result
+![Regression test](screenshot/postman_summary.png)
+
+* Validation tets rsult
+![Validation](screenshot/validationsummery.png)
+
+* Test result summery
+![Test summery](screenshot/test-result-summery.png)
+
+## Selenium UI Tests
+
+![Selenium UI test pipeline](screenshot/Seleniumtest.png)
 
 
-##
-##
-##
-##
+
 ##
 ##
 ##
