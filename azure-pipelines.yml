@@ -206,12 +206,8 @@ stages:
         targetType: 'inline'
         script: |          
           python3 ./automatedtesting/selenium/selenium_ui.py
-          - task: PublishPipelineArtifact@1
-            displayName: Publish Selenium logs
-            inputs:
-              targetPath: '$(System.DefaultWorkingDirectory)/log/selenium/selenium-test.log'
-              artifactName: 'drop-selenium-logs'
-              
+          cat /var/log/selenium/selenium_ui.log
+
   - job: PerformanceTest
     displayName: Test JMeter
     pool:
