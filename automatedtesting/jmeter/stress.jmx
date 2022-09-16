@@ -241,7 +241,7 @@
               <connectTime>true</connectTime>
             </value>
           </objProp>
-          <stringProp name="filename">E:\Bosch AI Udacity_DevOps\Project3_Qualityreleases\Ensuring-Qality-release\automatedtesting\jmeter\test_result.csv</stringProp>
+          <stringProp name="filename">E:\Bosch AI Udacity_DevOps\Project3_Qualityreleases\Ensuring-Qality-release\automatedtesting\jmeter\test_result_stress.csv</stringProp>
         </ResultCollector>
         <hashTree/>
         <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">

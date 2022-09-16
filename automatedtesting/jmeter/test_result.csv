@@ -1,13 +1,15 @@
 timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
-1663318983072,139,Get Users,200,OK,stress 2-1,text,true,,310,157,1,2,https://p3testapp-appservice.azurewebsites.net/api/Users?id=2,139,0,100
-1663318983072,147,Get Users,200,OK,endurance 1-1,text,true,,310,157,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=1,147,0,103
-1663318983275,110,Get Users,200,OK,stress 2-2,text,true,,310,157,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=3,110,0,81
-1663318983479,118,Get Users,200,OK,stress 2-3,text,true,,310,157,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=4,118,0,88
-1663318983683,119,Get Users,200,OK,stress 2-4,text,true,,310,157,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=5,119,0,89
-1663318983885,123,Get Users,200,OK,stress 2-5,text,true,,310,157,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=6,122,0,93
-1663318984070,132,Get Users,200,OK,stress 2-6,text,true,,310,157,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=7,132,0,100
-1663318984269,124,Get Users,200,OK,stress 2-7,text,true,,310,157,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=8,124,0,94
-1663318984469,118,Get Users,200,OK,stress 2-8,text,true,,310,157,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=9,118,0,88
-1663318984670,129,Get Users,200,OK,stress 2-9,text,true,,313,158,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=10,129,0,98
-1663318984870,132,Get Users,200,OK,stress 2-10,text,true,,310,157,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=1,132,0,99
-1663318988070,128,Get Users,200,OK,endurance 1-2,text,true,,310,157,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=2,127,0,96
+1663323080694,12953,Get Users,404,Not Found,endurance 1-1,text,false,,263,157,2,6,https://p3testapp-appservice.azurewebsites.net/api/Users?id=1,12953,0,11190
+1663323085695,8012,Get Users,404,Not Found,endurance 1-2,text,false,,263,157,1,3,https://p3testapp-appservice.azurewebsites.net/api/Users?id=2,8012,0,6181
+1663323099473,128,Get Users,404,Not Found,endurance 1-1,text,false,,263,157,1,2,https://p3testapp-appservice.azurewebsites.net/api/Users?id=1,128,0,89
+1663323104469,113,Get Users,404,Not Found,endurance 1-2,text,false,,263,157,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=2,113,0,83
+1663323113727,124,Get Users,404,Not Found,endurance 1-1,text,false,,263,157,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=1,124,0,95
+1663323118729,15870,Get Users,200,OK,endurance 1-2,text,true,,310,157,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=2,15870,0,88
+1663323151211,25746,Get Users,200,OK,endurance 1-1,text,true,,310,157,2,10,https://p3testapp-appservice.azurewebsites.net/api/Users?id=1,25746,0,11161
+1663323156213,20747,Get Users,200,OK,endurance 1-2,text,true,,310,157,1,5,https://p3testapp-appservice.azurewebsites.net/api/Users?id=2,20747,0,6160
+1663323243745,2227,Get Users,200,OK,endurance 1-2,text,true,,310,157,2,8,https://p3testapp-appservice.azurewebsites.net/api/Users?id=2,2227,0,2181
+1663323238744,7231,Get Users,200,OK,endurance 1-1,text,true,,310,157,1,4,https://p3testapp-appservice.azurewebsites.net/api/Users?id=1,7231,0,7188
+1663323332057,3691,Get Users,200,OK,endurance 1-1,text,true,,310,157,1,5,https://p3testapp-appservice.azurewebsites.net/api/Users?id=1,3691,0,3649
+1663323337057,119,Get Users,200,OK,endurance 1-2,text,true,,310,157,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=2,119,0,87
+1663323427441,127,Get Users,200,OK,endurance 1-1,text,true,,310,157,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=1,127,0,90
+1663323432441,137,Get Users,200,OK,endurance 1-2,text,true,,310,157,1,1,https://p3testapp-appservice.azurewebsites.net/api/Users?id=2,137,0,94
