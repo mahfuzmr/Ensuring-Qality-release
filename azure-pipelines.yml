@@ -204,3 +204,35 @@ stages:
         targetType: 'inline'
         script: |          
           python3 ./automatedtesting/selenium/selenium_ui.py
+
+  - job: PerformanceTest
+    displayName: Performance Tests
+    pool:     
+      vmImage: ubuntu-18.04
+    steps:
+    - task: JMeterInstaller@0
+      displayName: 'Install JMeter'
+      inputs:
+        jmeterVersion: '5.5'
+    - task: Bash@3
+      displayName: 'Stress Test'
+      inputs:
+        targetType: 'inline'
+        script: |
+          jmeter -n -t ./automatedtesting/jmeter/stress.jmx -l ./automatedtesting/jmeter/StressReports/results.jtl -e -o ./automatedtesting/jmeter/StressReports
+    - task: publishhtmlreport@1
+      displayName: 'Publish Stress Test Results'
+      inputs:
+        htmlType: 'OtherComplexReport'
+        JmeterReportsPath: './automatedtesting/jmeter/StressReports'
+    - task: Bash@3
+      displayName: 'Endurance Test'
+      inputs:
+        targetType: 'inline'
+        script: |
+          jmeter -n -t ./automatedtesting/jmeter/endurance.jmx -l ./automatedtesting/jmeter/EnduranceReports/results.jtl -e -o ./automatedtesting/jmeter/EnduranceReports
+    - task: publishhtmlreport@1
+      displayName: 'Publish Endurance Test Results'
+      inputs:
+        htmlType: 'OtherComplexReport'
+        JmeterReportsPath: './automatedtesting/jmeter/EnduranceReports'
