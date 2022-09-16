@@ -121,11 +121,11 @@ We can save and after succesfull execution the output of the test will be as fol
 
 ![Provision-Build-Deploy-Test](screenshot/test.png)
 
-Some times because of the resource limit reached. [![WUPff](https://github.com/Iggy-Codes/logo-images/blob/master/logos/pug.png)] the integration test showing 429 Error that's why the test stage has warning sign.
+Some times because of the resource limit reached. [![WUPff](https://github.com/Iggy-Codes/logo-images/blob/master/logos/pug.png)] the integration test showing 429 Error that's why the test stage has warning sign. We can easity skip the error 429 if we want.
 
-If the test phase succeed the complete pipeline will show following output
+If the test phase succeed, the complete pipeline will show following output
 
-![Provision-Build-Deploy-Test](screenshot/pipeline-output.png)
+![Provision-Build-Deploy-Test](screenshot/successful-run.png.png)
 
 Azure pipeline build results can be shown as:
 
