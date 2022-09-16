@@ -194,13 +194,15 @@ After configuring action group in azure portal for out apservice we got followin
 
 And then when out alert triggered we get following email as warning (since out alert template was warning)
 
-![Alert Triggered](screenshot/404%20alert.png)
+![Alert Triggered](screenshot/404alert.png)
 
-Azure Log Analytics Workspace is the provider of the log monitoring. After configuring log Analytics. 
+Azure Log Analytics Workspace is the provider of the log monitoring. After configuring log Analytics we should see our custom log in the ´´´ Table(preview)´´´
 
-We can now query to see out log analytics 
+![Custom log table view](screenshot/table-preview.png)
+
+We can now query to see out log analytics ´´´ Search *´´´ will show all the recorded logby the log analytics
+
+![Log All](screenshot/log-all.png)
 
 
-
-##
-##
+-------------Thank you---------------
