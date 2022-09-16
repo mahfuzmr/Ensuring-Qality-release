@@ -92,9 +92,19 @@ Before running the pipeline make sure to install the Terraform extension ![Azure
 
 Now run the pipeline to execute above configuration and create resources. A successful pipeline provision, build deploy will look like:
 
-![Provision-Build-Deploy](screenshot/Build.png)
+Terraform provissioning
 
-After deployment out created resource can be shown in the azure portal Home > Resource group > Resource Visualizer :
+![Provision](screenshot/provision.png)
+
+After execution terraform now it the build stage.
+
+![Provision-Build](screenshot/Build.png)
+
+Now its time to deploy FakerAPI to our application service
+
+![Provision-Build](screenshot/deploy.png)
+
+After deployment created resource can be shown in the azure portal Home > Resource group > Resource Visualizer :
 
 ![Provision-Build-Deploy](screenshot/resource-visualizer.png)
 
@@ -131,7 +141,7 @@ Each of the tests are done on the given demo application (App url are given insi
 
 ### Jmeter Tests
 
-* JMeter Pipeline report
+After execution of the pipeline job for Jmeter Test suite following is the output:
 
  ![JMeter Test report pipeline](screenshot/JMeter-pipeline.png)
 
@@ -146,6 +156,7 @@ After successfully test execution of JMeter for endurance an stress test locally
  ![Stress Test Report](screenshot/stress-test-report.png)
 
 ### Postman Tests
+After execution of the pipeline job for Postman Test suite following is the output:
 
 ![Postman test report pipeline](screenshot/Postmantest.png)
 
@@ -160,9 +171,13 @@ After successfully test execution of JMeter for endurance an stress test locally
 
 ## Selenium UI Tests
 
+After execution of the pipeline job for Selenium test suite following is the output:
+
 ![Selenium UI test pipeline](screenshot/Seleniumtest.png)
 
+Output window of the selenium with Which user looged in, How many product added then remove.
 
+![Pipeline output](screenshot/output-selenium.png)
 
 ##
 ##
