@@ -206,33 +206,47 @@ stages:
           python3 ./automatedtesting/selenium/selenium_ui.py
 
   - job: PerformanceTest
-    displayName: Performance Tests
-    pool:     
-      vmImage: ubuntu-18.04
+    displayName: Test JMeter
+    pool:
+      vmImage: 'ubuntu-18.04'
     steps:
-    - task: JMeterInstaller@0
-      displayName: 'Install JMeter'
+    - bash: |
+        sudo apt-get install openjdk-11-jre-headless -y
+        java -version
+        wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.5.tgz -O jmeter.tgz
+        tar xzvf jmeter.tgz
+        mkdir -p log/jmeter
+      displayName: Install JMeter
+    - bash: |
+        apache-jmeter-5.5/bin/jmeter -n -t automatedtesting/jmeter/stress-test.jmx \
+                                     -l log/jmeter/stress-test-result.csv \
+                                     -e -f -o log/jmeter/stress-test-html-report \
+                                     -j log/jmeter/jmeter-stress-test.log
+      displayName: JMeter Stress Test
+    - bash: |
+        apache-jmeter-5.5/bin/jmeter -n -t automatedtesting/jmeter/endurance-test.jmx \
+                                     -l log/jmeter/endurance-test-result.csv \
+                                     -e -f -o log/jmeter/endurance-test-html-report \
+                                     -j log/jmeter/jmeter-endurance-test.log
+      displayName: JMeter Endurance Test
+    - task: ArchiveFiles@2
+      displayName: Saving JMeter stress test report to artifact
       inputs:
-        jmeterVersion: '5.5'
-    - task: Bash@3
-      displayName: 'Stress Test'
+        rootFolderOrFile: '$(System.DefaultWorkingDirectory)/log/jmeter/stress-test-html-report'
+        includeRootFolder: false
+        archiveType: 'zip'
+        archiveFile: '$(System.DefaultWorkingDirectory)/log/jmeter/stress-test-html-report-$(Build.BuildId).zip'
+        verbose: true
+    - task: ArchiveFiles@2
+      displayName: Saving JMeter endurance test report to artifact
       inputs:
-        targetType: 'inline'
-        script: |
-          jmeter -n -t ./automatedtesting/jmeter/stress.jmx -l ./automatedtesting/jmeter/StressReports/results.jtl -e -o ./automatedtesting/jmeter/StressReports
-    - task: publishhtmlreport@1
-      displayName: 'Publish Stress Test Results'
+        rootFolderOrFile: '$(System.DefaultWorkingDirectory)/log/jmeter/endurance-test-html-report'
+        includeRootFolder: false
+        archiveType: 'zip'
+        archiveFile: '$(System.DefaultWorkingDirectory)/log/jmeter/endurance-test-html-report-$(Build.BuildId).zip'
+        verbose: true
+    - task: PublishPipelineArtifact@1
+      displayName: Publish JMeter logs
       inputs:
-        htmlType: 'OtherComplexReport'
-        JmeterReportsPath: './automatedtesting/jmeter/StressReports'
-    - task: Bash@3
-      displayName: 'Endurance Test'
-      inputs:
-        targetType: 'inline'
-        script: |
-          jmeter -n -t ./automatedtesting/jmeter/endurance.jmx -l ./automatedtesting/jmeter/EnduranceReports/results.jtl -e -o ./automatedtesting/jmeter/EnduranceReports
-    - task: publishhtmlreport@1
-      displayName: 'Publish Endurance Test Results'
-      inputs:
-        htmlType: 'OtherComplexReport'
-        JmeterReportsPath: './automatedtesting/jmeter/EnduranceReports'
+        targetPath: '$(System.DefaultWorkingDirectory)/log/jmeter'
+        artifactName: 'drop-jmeter-logs'
