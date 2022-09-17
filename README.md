@@ -150,15 +150,15 @@ After execution of the pipeline job for Jmeter Test suite following is the outpu
 
  ![JMeter Test report pipeline steress](screenshot/output-stress.png)
 
-  ![JMeter Test report pipeline endurance](screenshot/output-endurance.png)
+![JMeter Test report pipeline endurance](screenshot/output-endurance.png)
 
 After successfully test execution of JMeter for endurance and stress test locally the following are the output reports:
 
-* Endurance test report
+* Endurance test HTML report
 
  ![Endurance Test report](screenshot/endurance-test-report.png)
 
-* Stress test report
+* Stress test HTML report
 
  ![Stress Test Report](screenshot/stress-test-report.png)
 
