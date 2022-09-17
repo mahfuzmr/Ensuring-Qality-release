@@ -1,5 +1,3 @@
-[![Build Status](https://dev.azure.com/mahfuzmr0080/eqr-project03/_apis/build/status/mahfuzmr.Ensuring-Qality-release?branchName=main)](https://dev.azure.com/mahfuzmr0080/eqr-project03/_build/latest?definitionId=6&branchName=main)
-
 # Ensuring-Qality-release
 Demo project to ensure IaC quality releases by autometed CI/CD pipeline using Azure DevOps 
 
